@@ -28,29 +28,29 @@ export default function Form() {
 
       setHeight(null);
       setWeight(null);
-      setMessageIMC("Seu IMC é igual :");
       setTextButton("Calcular novamente");
-      if (imc <= 17) {
-        setMessageIMC("Muito abaixo do peso");
+
+      const imcMessages = {
+        17: "Muito abaixo do peso",
+        18.49: "Abaixo do peso",
+        24.99: "Peso normal",
+        29.99: "Acima do peso",
+        34.99: "Obesidade I",
+        39.99: "Obesidade II (severa)",
+        Infinity: "Obesidade III (mórbida)",
+      };
+
+      const imcKeys = Object.keys(imcMessages);
+
+      let message = "";
+
+      for (let i = 0; i < imcKeys.length; i++) {
+        if (imc <= parseFloat(imcKeys[i])) {
+          message = imcMessages[imcKeys[i]];
+          break;
+        }
       }
-      if ((imc > 17 && imc <= 18, 49)) {
-        setMessageIMC("Abaixo do peso");
-      }
-      if (imc >= 18.5 && imc <= 24.99) {
-        setMessageIMC("Peso normal");
-      }
-      if (imc >= 25 && imc <= 29.99) {
-        setMessageIMC("Acima do peso");
-      }
-      if (imc >= 30 && imc <= 34.99) {
-        setMessageIMC("Obesidade I");
-      }
-      if (imc >= 35 && imc <= 39.99) {
-        setMessageIMC("Obesidade II (severa)");
-      }
-      if (imc >= 40) {
-        setMessageIMC("Obesidade III (mórbida)");
-      }
+      setMessageIMC(`${message}`);
 
       setErrorMessage(null);
       return setIMC(imc.toFixed(2));
