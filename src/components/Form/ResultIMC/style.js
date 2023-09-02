@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
     color: "#ff0043",
     fontWeight: "bold",
   },
+  messageStatus: {
+    fontSize: 18,
+    color: "#ff0043",
+    fontWeight: "bold",
+  },
   boxShareButton: {
     width: "100%",
     alignItems: "center",
@@ -28,6 +33,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     paddingBottom: 5,
     paddingTop: 5,
+    marginTop: 20,
   },
   sharedText: {
     color: "#fff",
